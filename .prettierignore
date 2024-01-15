@@ -1,0 +1,4 @@
+# Ignore all files in the project
+*
+# Explicitly include the files you want Prettier to process
+!src/**/*.ts
