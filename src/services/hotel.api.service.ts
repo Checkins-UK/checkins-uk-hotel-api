@@ -37,8 +37,9 @@ export class ZentrumhubService {
       return data;
       
     } catch (error) {
-      console.error(error.data.message);
-      throw new HttpException('Error creating a token', HttpStatus.INTERNAL_SERVER_ERROR);
+      console.error(error?.response?.data?.message);
+      return { hotels: [], error: error?.response?.data?.message };
+      // throw new HttpException('Error creating a token', HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 
