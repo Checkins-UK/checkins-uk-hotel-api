@@ -43,12 +43,12 @@ export class ReviewService {
         const { city, hotelName } = reqBody;
 
         const response = await axios.get(
-            `https://hotelfinderchekins.com/hotel_reviews?hotel=${hotelName}, ${city}`
+            `https://reviews.checkins.ai/hotel_reviews?hotel=${hotelName}, ${city}`
           );
 
-          if (response.data.length === 0) {
-            throw new HttpException('There is no matching hotels for hotel names that provide by the city and hotel name', HttpStatus.NOT_FOUND);
-          }
+          // if (response.data.length === 0) {
+          //   throw new HttpException('There is no matching hotels for hotel names that provide by the city and hotel name', HttpStatus.NOT_FOUND);
+          // }
 
           return response.data;
       

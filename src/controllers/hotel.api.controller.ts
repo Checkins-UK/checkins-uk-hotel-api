@@ -29,18 +29,6 @@ export class ZentrumhubController {
     }
   }
 
-  @Post('/hotels/availability/rh')
-  @HttpCode(200)
-  async getHotelAvailabilityRH(@Body() reqBody: any ) {
-    try {
-      const result = await this.zentrumhubService.initalCallOfZentrumhubRateHawk(reqBody);
-      return result;
-    } catch (error) {
-      console.error(error);
-      return { hotels: [], error: error };
-    }
-  }
-
   @Post('/hotels/availability/async/:token/:resultkey')
   @HttpCode(200)
   async nextAsyncHotelData(
@@ -74,18 +62,6 @@ export class ZentrumhubController {
   async getRoomAndRates(@Body() reqBody: any ) {
     try {
       const result = await this.zentrumhubService.initRoomAndRatesToken(reqBody);
-      return result;
-    } catch (error) {
-      console.error(error);
-      return { hotels: [], error: error };
-    }
-  }
-
-  @Post('/rates/individualHotel/roomAndRates/availability/init/rh')
-  @HttpCode(200)
-  async getRoomAndRatesRH(@Body() reqBody: any ) {
-    try {
-      const result = await this.zentrumhubService.initRoomAndRatesTokenRateHawk(reqBody);
       return result;
     } catch (error) {
       console.error(error);
