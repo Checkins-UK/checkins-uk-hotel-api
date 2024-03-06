@@ -27,19 +27,17 @@ export class ZentrumhubService {
   }
 
   async initialCallOfZentrumhub(reqBody: any) {
-
+    console.log(reqBody);
     // Implement the logic to make the initial API call and retrieve the token
     try {
       const zentrumhubResponse = await axios.post(`${process.env.CHECKINS_HUB_API_ENDPOINT}/api/v1/hotels/availability`, reqBody);
-      
-      if(zentrumhubResponse.data.error) throw new HttpException(zentrumhubResponse.data.error, HttpStatus.INTERNAL_SERVER_ERROR);
 
       const data = zentrumhubResponse.data;
-
+      console.log(data);
       return data;
       
     } catch (error) {
-      console.error(error);
+      console.error(error.data.message);
       throw new HttpException('Error creating a token', HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
@@ -85,12 +83,6 @@ export class ZentrumhubService {
     try {
       const zentrumhubResponse = await axios.post(`${process.env.CHECKINS_HUB_API_ENDPOINT}/api/v1/rates/individualHotel/roomAndRates/availability/init`, reqBody);
       
-      if(zentrumhubResponse?.data?.error) throw new HttpException(zentrumhubResponse.data.error, HttpStatus.INTERNAL_SERVER_ERROR);
-
-      if(zentrumhubResponse?.data?.hotel?.rates.length === 0) throw new HttpException('No data found', HttpStatus.INTERNAL_SERVER_ERROR);
-
-      if(zentrumhubResponse?.data === "") throw new HttpException('No data found', HttpStatus.INTERNAL_SERVER_ERROR);
-
       const responseData = zentrumhubResponse.data;
 
       // Return the modifiedData
