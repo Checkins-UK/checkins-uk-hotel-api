@@ -10,10 +10,10 @@ import { ReviewService } from './services/review.api.service';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'checkins-uk-database.mysql.database.azure.com',
+      host: '5.189.138.36',
       port: 3306,
-      username: 'aadmin',
-      password: 'Amila123$',
+      username: 'amila',
+      password: 'Amila12345$',
       database: 'scuttlr',
       entities: [],
       synchronize: true,
