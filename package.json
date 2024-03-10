@@ -27,6 +27,7 @@
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/typeorm": "^10.0.1",
     "axios": "^1.6.2",
+    "compression": "^1.7.4",
     "moment": "^2.29.4",
     "mysql2": "^3.6.5",
     "reflect-metadata": "^0.1.13",
